@@ -1,0 +1,26 @@
+<div ng-include="'partials/navbar'"></div>
+
+<div class="jumbotron">
+  <h1>Welcome to the Glass Parrot<span ng-show="currentUser">, {{ currentUser.name }}</span></h1>
+  <p ng-show="currentUser" ng-class="{active:isActive('/messages')}"><a class="btn btn-lg btn-success" ng-href="/login">Start Adding Messages</a></p>
+  <p ng-hide="currentUser" ng-class="{active:isActive('/contacts')}"><a class="btn btn-lg btn-success" ng-href="/login">Login to start</a></p>
+</div>
+
+<div ng-controller="CarouselDemoCtrl">
+  <div style="height: 305px">
+    <carousel interval="myInterval">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4>Slide {{$index}}</h4>
+          <p>{{slide.text}}</p>
+        </div>
+      </slide>
+    </carousel>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <a class="btn btn-info" ng-click="addSlide()">Add Slide</a>
+    </div>
+  </div>
+</div>
